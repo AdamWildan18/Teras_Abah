@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ==========================================
+   PRINT STYLES - Thermal Printer (58mm/80mm)
+   ========================================== */
+/* ==========================================
+   PRINT STYLES - Thermal Printer (3 Rangkap)
+   ========================================== */
+
+/* Sembunyikan container cetak di layar normal */
+.print-only-container {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+
+  /* Sembunyikan SEMUA elemen di halaman */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Tampilkan HANYA container struk dan anak-anaknya */
+  .print-only-container,
+  .print-only-container * {
+    visibility: visible;
+  }
+
+  /* Posisikan di pojok kiri atas */
+  .print-only-container {
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    background: white !important;
+  }
+
+  /* Setiap struk memiliki ukuran konsisten */
+  .print-receipt {
+    display: block !important;
+    width: 80mm !important;
+    margin: 0 auto !important;
+    padding: 4mm !important;
+    background: white !important;
+    color: black !important;
+    font-family: 'Courier New', monospace !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Override flex layouts dalam struk saat print */
+  .print-receipt [style*="display: flex"] {
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  /* PENTING: Paksa printer untuk ganti halaman setelah setiap struk */
+  .page-break {
+    display: block !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 1px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Sembunyikan overlay modal dan elemen fixed lainnya */
+  .print\:hidden,
+  .fixed,
+  .modal,
+  .sidebar,
+  nav {
+    display: none !important;
+  }
+
+  /* Pastikan background putih untuk print */
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* ==========================================
+   DARK MODE BASE STYLES
+   ========================================== */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  @apply bg-gray-900;
+}
+
+/* Smooth transition */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* ==========================================
+   DARK MODE GLOBAL OVERRIDES (AMAN)
+   ========================================== */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #111827; /* gray-900 */
+  color: #f3f4f6; /* gray-100 */
+}
+
+/* Auto-convert bg-white cards to dark */
+.dark .bg-white {
+  background-color: #1f2937 !important; /* gray-800 */
+}
+
+.dark .bg-gray-50 {
+  background-color: #111827 !important; /* gray-900 */
+}
+
+.dark .bg-gray-100 {
+  background-color: #374151 !important; /* gray-700 */
+}
+
+/* Border colors */
+.dark .border-gray-200,
+.dark .border {
+  border-color: #374151 !important; /* gray-700 */
+}
+
+/* Text colors - gunakan nilai HEX langsung, BUKAN @apply */
+.dark .text-gray-900 { color: #ffffff !important; }
+.dark .text-gray-800 { color: #f3f4f6 !important; }
+.dark .text-gray-700 { color: #d1d5db !important; }
+.dark .text-gray-600 { color: #9ca3af !important; }
+.dark .text-gray-500 { color: #6b7280 !important; }
+.dark .text-gray-400 { color: #9ca3af !important; }
+
+/* Input & form elements */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #374151;
+  color: #ffffff;
+  border-color: #4b5563;
+}
+
+/* Smooth transition */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Recharts dark mode support */
+.dark .recharts-cartesian-grid-horizontal line,
+.dark .recharts-cartesian-grid-vertical line {
+  stroke: #374151 !important;
+}
+
+.dark .recharts-text {
+  fill: #9ca3af !important;
+}
+
+/* Scrollbar dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
