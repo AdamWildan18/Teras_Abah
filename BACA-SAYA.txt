@@ -1,0 +1,32 @@
+========================================
+  TERAS ABAH - Sistem Manajemen Warung
+========================================
+
+PANDUAN PENGGUNAAN:
+
+1. SETUP PERTAMA KALI (Hanya 1x):
+   - Klik 2x file "⚙️ SETUP-PERTAMA.bat"
+   - Tunggu hingga muncul tulisan "Setup Selesai!"
+
+2. MENJALANKAN APLIKASI (Setiap hari):
+   - Klik 2x file "🚀 MULAI.bat"
+   - Tunggu 3-5 detik, browser akan otomatis terbuka.
+   - Login menggunakan akun yang diberikan.
+
+3. MEMATIKAN APLIKASI:
+   - Klik 2x file "🛑 BERHENTI.bat"
+   - Tunggu hingga muncul tulisan "berhasil dimatikan".
+
+PENTING:
+- Jangan memindahkan atau menghapus folder ini.
+- Pastikan Laragon sudah terinstall di komputer (jika menggunakan script di atas).
+- Untuk backup data, copy seluruh folder ini ke Flashdisk/Cloud.
+
+AKUN DEFAULT:
+Admin    : admin@warung.com / password
+Kasir    : kasir@warung.com / password
+Produksi : produksi@warung.com / password
+
+========================================
+  Support: [Nomor WhatsApp Anda]
+========================================
